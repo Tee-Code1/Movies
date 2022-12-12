@@ -41,15 +41,15 @@ for movie in movie_elements:
 from twilio.rest import Client
 
 # Set your Twilio account SID, auth token, and the WhatsApp number you want to send the message to
-account_sid = 'ACd3ea68a2975e07507ee64e2f30e9148a'
-auth_token = '854302900dcfeba421a83bea058f9148'
-to_whatsapp_number = 'whatsapp:+2349075255792'
+account_sid = "input your account sid"
+auth_token = 'token'
+to_whatsapp_number = 'whatsapp:[number]'
 
 # Use the requests library to download the image
 image_response = requests.get(image_link)
 
 # Set the URL of the Twilio API endpoint and the image URL
-api_url = 'https://api.twilio.com/2010-04-01/Accounts/{}/Messages.json'.format(account_sid)
+api_url = [input your api link]
 media_url = image_link
 
 # Set the headers and data for the API request
@@ -63,7 +63,7 @@ for i in info:
 
     response = client.messages.create(
         to=to_whatsapp_number,
-        from_='whatsapp:+14155238886',
+        from_='whatsapp:[number]',
         body=f'Today Recomended Movie to watch:{i["Title"]} \nmovie link is: {i["Link"]} \nMovie rating: {i["Rating"]} \nMovie duration: {i["Minutes"]}',
         media_url=i["ImageLink"],
     )
